@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.MasterPage"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Padding="0,0,0,0"
+             Title="StudyMSL">
+
+
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            
+            <StackLayout Grid.Row="0" BackgroundColor="Gray" Orientation="Horizontal" Spacing="10" Padding="10,20,10,20">
+                <ff:CachedImage Source="Icon_StudyMSL_v4.png" WidthRequest="50" HeightRequest="50">
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label x:Name="lblName" TextColor="White" FontSize="30"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" >
+                <ListView x:Name="listView" SeparatorVisibility="None" HasUnevenRows="True" RowHeight="55">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <ff:CachedImage Source="{Binding IconSource}" WidthRequest="30" HeightRequest="30" Margin="10,0,0,0"/>
+                                    <Label Grid.Column="1" Text="{Binding Title}" FontSize="20" VerticalOptions="FillAndExpand" Margin="0,0,10,0"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="10,10,10,10" VerticalOptions="End">
+                <BoxView HeightRequest="1" Color="Gray"/>
+
+                <StackLayout Orientation="Horizontal" Padding="10,5,10,5" VerticalOptions="End">
+                    <ff:CachedImage Source="Icon_Logout_128.png" WidthRequest="25" HeightRequest="25"/>
+                    <Label Grid.Column="1" Text="Logout" FontSize="20" FontAttributes="Bold"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="lblLogout_OnClicked"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Sentences.SentencesLearningPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Sentence Builder">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:LearnViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Enter a sentence" Margin="20,20,20,0"/>
+            <CR:RoundedEntry x:Name="etySentence" Margin="40,0,40,0"/>
+            <CR:CustomButton x:Name="btnTranslate" Text="Translate" Pressed="btnTranslate_OnClicked" Margin="40,0,40,0"
+                             TextColor="White"
+                             CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            <forms:CarouselView ItemsSource="{Binding LearnOC}" x:Name="CarouselSentence">
+                <forms:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <StackLayout Grid.Row="0">
+                                <Label FontSize="20" TextColor="Black" Text="{Binding image_name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                <ff:CachedImage Source="{Binding image_dir}" LoadingPlaceholder = "Icon_Alphabet_200.png" 
+                                                MinimumHeightRequest="200" MinimumWidthRequest="200"/>
+                            </StackLayout>
+                            <!--<StackLayout Grid.Row="2">
+                                <Label FontSize="30" TextColor="Gray" Text="{Binding image_desc}" HorizontalOptions="Center" VerticalOptions="End"/>
+                            </StackLayout>-->
+                        </Grid>
+                    </DataTemplate>
+                </forms:CarouselView.ItemTemplate>
+            </forms:CarouselView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

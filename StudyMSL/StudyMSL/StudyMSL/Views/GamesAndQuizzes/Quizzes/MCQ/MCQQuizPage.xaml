@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.Quizzes.MCQ.MCQQuizPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Multiple Choice Questions">
+
+    
+
+    <ContentPage.BindingContext>
+        <ViewModels:QuestionViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,5,20,5" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Question: " FontSize="Default"/>
+                <Label Text="{Binding number}" FontSize="Default" FontAttributes="Bold"/>
+                <Label Text="/10" FontSize="Default"/>
+                <Label Text=" Score: " FontSize="Default"/>
+                <Label Text="{Binding score}" FontSize="Default" FontAttributes="Bold"/>
+                <Label Text=" Time left: " FontSize="Default"/>
+                <Label Text="{Binding time}" FontSize="Default" FontAttributes="Bold"/>
+                <Label Text="s" FontSize="Default"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Padding="20,0,20,0">
+                <Label Text="{Binding question1}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="20,0,20,5">
+                <ff:CachedImage Source="{Binding image_dir}" 
+                                LoadingPlaceholder="icon_ABC.png" x:Name="imgQuestion" 
+                                HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Padding="40,0,40,5" VerticalOptions="End">
+                <!--<Button Text="{Binding answer1}" x:Name="btnAnswer1" Clicked="btnAnswer1_OnClicked" HorizontalOptions="Fill"/>
+                <Button Text="{Binding answer2}" x:Name="btnAnswer2" Clicked="btnAnswer2_OnClicked" HorizontalOptions="Fill"/>
+                <Button Text="{Binding answer3}" x:Name="btnAnswer3" Clicked="btnAnswer3_OnClicked" HorizontalOptions="Fill"/>
+                <Button Text="{Binding answer4}" x:Name="btnAnswer4" Clicked="btnAnswer4_OnClicked" HorizontalOptions="Fill"/>-->
+                <CR:CustomButton Text="{Binding answer1}" x:Name="btnAnswer1" Clicked="btnAnswer1_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="{Binding answer2}" x:Name="btnAnswer2" Clicked="btnAnswer2_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="{Binding answer3}" x:Name="btnAnswer3" Clicked="btnAnswer3_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="{Binding answer4}" x:Name="btnAnswer4" Clicked="btnAnswer4_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

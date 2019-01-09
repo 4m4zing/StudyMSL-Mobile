@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.Games.PictureSpelling.PictureSpellingGamePage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Picture Spelling Game">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:PictureSpellingViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,5,20,5" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Question: " FontSize="15"/>
+                <Label Text="{Binding number}" FontAttributes="Bold"/>
+                <Label Text="/4"/>
+                <Label Text=" Score: "/>
+                <Label Text="{Binding score}" FontAttributes="Bold"/>
+                <Label Text=" Time left: "/>
+                <Label Text="{Binding time}" FontAttributes="Bold"/>
+                <Label Text="s"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Margin="20,0,20,5">
+                <Label Text="Spell the answer for the image below using fingerspelling" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Margin="20,0,20,0">
+                <ff:CachedImage x:Name="imgQuestion" Source="{Binding image_dir}" LoadingPlaceholder = "icon_ABC.png"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Margin="20,10,20,10" Orientation="Horizontal" HorizontalOptions="Center">
+                <ff:CachedImage x:Name="imgQ1" Source="{Binding q_image1}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image1_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ2" Source="{Binding q_image2}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image2_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ3" Source="{Binding q_image3}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image3_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ4" Source="{Binding q_image4}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image4_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Margin="20,0,20,5" Orientation="Horizontal" HorizontalOptions="Center">
+                <ff:CachedImage x:Name="imgQ5" Source="{Binding q_image5}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image5_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ6" Source="{Binding q_image6}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image6_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ7" Source="{Binding q_image7}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image7_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <ff:CachedImage x:Name="imgQ8" Source="{Binding q_image8}">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="image8_OnClicked"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" Grid.RowSpan="2" Margin="5,0,5,0" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Label Grid.Row="5"  Text="Answer: "/>
+
+                <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <ff:CachedImage x:Name="imgA1" Source="{Binding a_image1}"/>
+                    <ff:CachedImage x:Name="imgA2" Source="{Binding a_image2}"/>
+                    <ff:CachedImage x:Name="imgA3" Source="{Binding a_image3}"/>
+                    <ff:CachedImage x:Name="imgA4" Source="{Binding a_image4}"/>
+                    <ff:CachedImage x:Name="imgA5" Source="{Binding a_image5}"/>
+                    <ff:CachedImage x:Name="imgA6" Source="{Binding a_image6}"/>
+                    <ff:CachedImage x:Name="imgA7" Source="{Binding a_image7}"/>
+                    <ff:CachedImage x:Name="imgA8" Source="{Binding a_image8}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" Margin="20,0,20,5" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                <!--<Button Text="Check Answer" Pressed="btnCheckAnswer_OnClicked"/>
+                <Button Text="Reset Answer" Pressed="btnResetAnswer_OnClicked"/>-->
+                <CR:CustomButton Text="Check Answer" x:Name="btnCheckAnswer" Clicked="btnCheckAnswer_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Reset Answer" x:Name="btnResetAnswer" Clicked="btnResetAnswer_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.GamesPage"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             BackgroundColor="#e1e4ea"
+             Title="Games">
+
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,20,40,20">
+                <Label Text="Alphabet Games" FontAttributes="Bold"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Memory Matching Game" x:Name="btnAlphabetMemory" Clicked="btnAlphabetMemory_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Picture Spelling Game" x:Name="btnAlphabetSpelling" Clicked="btnAlphabetSpelling_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+
+                <Label Text="Number Games" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Memory Matching Game" x:Name="btnNumberMemory" Clicked="btnNumberMemory_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Picture Spelling Game" x:Name="btnNumberSpelling" Clicked="btnNumberSpelling_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+
+                <!--<Label Text="Word Games" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Memory Matching Game" x:Name="btnWordMemory" Clicked="btnWordMemory_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

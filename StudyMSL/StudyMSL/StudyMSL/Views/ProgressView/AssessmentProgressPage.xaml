@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.ProgressView.AssessmentProgressPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Assessment">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:ProgressViewModel/>
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="2">
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Game and Quiz Progresses" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,5,0,5"/>
+
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <StackLayout Grid.Column="0" Orientation="Horizontal">
+                        <Label Grid.Column="0" Text="Content  | " FontAttributes="Bold" HorizontalOptions="Start" Margin="0,5,0,5"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Orientation="Horizontal">
+                        <Label Grid.Column="1" Text="Highest Score" FontAttributes="Bold" HorizontalOptions="End" Margin="0,5,0,5"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <ListView Grid.Row="2" x:Name="lvProgressAssessment" SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal">
+                                        <Label Text="{Binding content_name}" HorizontalOptions="StartAndExpand" Margin="5,0,0,0"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal">
+                                        <Label Text="{Binding content_desc}" FontSize="20" HorizontalOptions="End" Margin="0,0,5,0"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

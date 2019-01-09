@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.Games.Memory.MemoryGamePage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:myview="clr-namespace:StudyMSL.Plugins.ViewFlipper;assembly=StudyMSL"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Memory Matching Game">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:MemoryMatchingViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary x:Name="AppDictionary">
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+            <Color x:Key="BorderColor">Red</Color>
+
+            <Style x:Key="InternalViewStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" 
+                        Value="{StaticResource BackgroundColor}"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,0,0,0"></Setter>
+            </Style>
+
+            <Style x:Key="BorderStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BorderColor}"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="3,3,3,3"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,5,20,5" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Steps: " FontSize="15"/>
+                <Label Text="{Binding number}" FontAttributes="Bold"/>
+                <Label Text=" Score: "/>
+                <Label Text="{Binding score}" FontAttributes="Bold"/>
+                <Label Text=" Time left: "/>
+                <Label Text="{Binding time}" FontAttributes="Bold"/>
+                <Label Text="s"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Padding="20,0,20,0">
+                <Label Text="Match the signs with their labels" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Margin="20,20,20,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView Style="{StaticResource BorderStyle}">
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf1">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard1" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image1}" x:Name="imgFrontCard1" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard1_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+                <ContentView Style="{StaticResource BorderStyle}" >
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf2">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard2" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image2}" x:Name="imgFrontCard2" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard2_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Margin="20,0,20,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView Style="{StaticResource BorderStyle}" >
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf3">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard3" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image3}" x:Name="imgFrontCard3" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard3_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+                <ContentView Style="{StaticResource BorderStyle}" >
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf4">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard4" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image4}" x:Name="imgFrontCard4" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard4_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Margin="20,0,20,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView Style="{StaticResource BorderStyle}" >
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf5">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard5" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image5}" x:Name="imgFrontCard5" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard5_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+                <ContentView Style="{StaticResource BorderStyle}" >
+                    <Frame Padding="0">
+                        <myview:MyViewFlipper BackgroundColor="White" x:Name="vf6">
+                            <myview:MyViewFlipper.FrontView>
+                                <ff:CachedImage Source="Icon_Question_Mark_256.png" x:Name="imgBackCard6" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.FrontView>
+                            <myview:MyViewFlipper.BackView>
+                                <ff:CachedImage Source="{Binding q_image6}" x:Name="imgFrontCard6" Aspect="AspectFill"/>
+                            </myview:MyViewFlipper.BackView>
+                        </myview:MyViewFlipper>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgFrameCard6_OnClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </ContentView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

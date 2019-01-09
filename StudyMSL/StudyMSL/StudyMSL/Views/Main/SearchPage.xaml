@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.SearchPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Search">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:SearchViewModel/>
+    </ContentPage.BindingContext>
+
+    
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <SearchBar Grid.Row="0" x:Name="sbByName" SearchButtonPressed="sbByName_OnClicked"
+                           HorizontalOptions="Fill" HeightRequest="40" Margin="0,0,0,5"/>
+                <Label Grid.Row="1" x:Name="lblAlphabet" FontSize="20" TextColor="Black" Text="Alphabets" 
+                       HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False"/>
+                <Label Grid.Row="2" Text="No alphabet is found!" x:Name="lblNoAlphabet" IsVisible="False" HorizontalOptions="Center"/>
+                <ListView Grid.Row="2"  ItemsSource="{Binding AlphabetsOC}" x:Name="lvAlphabets" ItemTapped="lvAlphabet_OnItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <!--<ff:CachedImage Source="{Binding image_dir}" Margin="5,5,50,5"/>-->
+                                    <Label FontSize="Medium" TextColor="Black" Text="{Binding image_name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Grid.Row="3" x:Name="lblNumber" FontSize="20" TextColor="Black" Text="Numbers" 
+                       HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False"/>
+                <Label Grid.Row="4" Text="No number is found!" x:Name="lblNoNumber" IsVisible="False" HorizontalOptions="Center"/>
+                <ListView Grid.Row="4" ItemsSource="{Binding NumbersOC}" x:Name="lvNumbers" ItemTapped="lvNumber_OnItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <!--<ff:CachedImage Source="{Binding image_dir}" Margin="5,5,50,5"/>-->
+                                    <Label FontSize="Medium" TextColor="Black" Text="{Binding image_name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Grid.Row="5" x:Name="lblWord" FontSize="20" TextColor="Black" Text="Words" 
+                       HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False"/>
+                <Label Grid.Row="6" Text="No word is found!" x:Name="lblNoWord" IsVisible="False" HorizontalOptions="Center"/>
+                <ListView Grid.Row="6" ItemsSource="{Binding WordsOC}" x:Name="lvWords" ItemTapped="lvWord_OnItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <!--<ff:CachedImage Source="{Binding image_dir}" Margin="5,5,50,5"/>-->
+                                    <Label FontSize="Medium" TextColor="Black" Text="{Binding image_name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

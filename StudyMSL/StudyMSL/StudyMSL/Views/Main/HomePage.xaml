@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.HomePage"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             BackgroundColor="#e1e4ea"
+             Title="StudyMSL">
+
+
+    
+    <ContentPage.Content>
+        <!--<ScrollView>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,30,20,20" HorizontalOptions="Center" VerticalOptions="Center">
+                <ff:CachedImage Source="Icon_StudyMSL_v4.png" WidthRequest="100" HeightRequest="100">
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label Text="Study MSL" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Margin="20,30,20,20" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label HorizontalTextAlignment="Center"
+                       Text="This mobile-based learning portal is targeted for general public with basic mobile proficiency. Learning consist of fingerspelling, words, and sentences. Games and Quizzes are also included to help the learning process. Registered users can enjoy more functionalities such as progress tracking, and image gesture contribution."/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

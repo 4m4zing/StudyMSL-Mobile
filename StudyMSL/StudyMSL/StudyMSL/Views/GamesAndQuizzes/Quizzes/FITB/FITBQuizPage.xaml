@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.Quizzes.FITB.FITBQuizPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Fill in the Blank Questions">
+
+
+    
+    <ContentPage.BindingContext>
+        <ViewModels:QuestionViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,5,20,5" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Question: "/>
+                <Label Text="{Binding number}" FontAttributes="Bold"/>
+                <Label Text="/10"/>
+                <Label Text=" Score: "/>
+                <Label Text="{Binding score}" FontAttributes="Bold"/>
+                <Label Text=" Time left: "/>
+                <Label Text="{Binding time}" FontAttributes="Bold"/>
+                <Label Text="s"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Padding="20,0,20,0">
+                <Label Text="Fill in the answer for the image below" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Padding="20,0,20,2" VerticalOptions="Center">
+                <ff:CachedImage Source="{Binding image_dir}" 
+                                LoadingPlaceholder="icon_ABC.png" x:Name="imgQuestion" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Padding="20,0,20,5" VerticalOptions="End">
+                <!--<Entry x:Name="etyAnswer" TextChanged="etyAnswer_Text" HorizontalOptions="Fill"/>-->
+                <CR:RoundedEntry x:Name="etyAnswer" Placeholder="Answer?" IsVisible="True" TextChanged="etyAnswer_Text" HorizontalOptions="Fill"/>
+                <CR:RoundedEntry x:Name="etyAnswerNumber" Placeholder="Answer?" Keyboard="Numeric" IsVisible="False" TextChanged="etyAnswerNumber_Text" HorizontalOptions="Fill"/>
+                <!--<Button Text="Next" x:Name="btnNext" Clicked="btnNext_OnClicked" HorizontalOptions="Fill"/>-->
+                <CR:CustomButton Text="Next" x:Name="btnNext" Clicked="btnNext_OnClicked" HorizontalOptions="Fill"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

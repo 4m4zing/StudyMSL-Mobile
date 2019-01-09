@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.GamesAndQuizzes.QuizzesPage"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             BackgroundColor="#e1e4ea"
+             Title="Quizzes">
+
+
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,20,40,20">
+                <Label Text="Alphabet Quizzes" FontAttributes="Bold"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Multiple Choice Questions" x:Name="btnAlphabetMCQ" Clicked="btnAlphabetMCQ_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Fill in the Blank Questions" x:Name="btnAlphabetFITB" Clicked="btnAlphabetFITB_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+
+                <Label Text="Number Quizzes" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Multiple Choice Questions" x:Name="btnNumberMCQ" Clicked="btnNumberMCQ_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Fill in the Blank Questions" x:Name="btnNumberFITB" Clicked="btnNumberFITB_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+
+                <Label Text="Word Quizzes" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+                <CR:CustomButton Text="Multiple Choice Questions" x:Name="btnWordMCQ" Clicked="btnWordMCQ_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Fill in the Blank Questions" x:Name="btnWordFITB" Clicked="btnWordFITB_OnClicked" 
+                                 HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Learn.FingerspellingPage"
+             BackgroundColor="#e1e4ea"
+             Title="Fingerspelling">
+
+    
+
+    <ContentPage.Content>
+        <ListView x:Name="lvFingerspellingPage" ItemTapped="lvFingerspellingPage_OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding IconSource}" WidthRequest="30" HeightRequest="30" Margin="5,5,50,5"/>
+                            <Label Text="{Binding Title}" FontSize="20" Margin="0,5,0,5"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

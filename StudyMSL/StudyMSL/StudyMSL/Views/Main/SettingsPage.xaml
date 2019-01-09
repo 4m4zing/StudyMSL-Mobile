@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.SettingsPage"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             BackgroundColor="#e1e4ea"
+             Title="Account Settings">
+
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>-->
+
+            
+            <StackLayout VerticalOptions="Center" Padding="40,0,40,0">
+                <CR:CustomButton Text="Change Password" Clicked="btnChangePassword_OnClicked"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <CR:CustomButton Text="Change Lesson Language" Clicked="btnChangeLanguage_OnClicked"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+            <!--</Grid>-->
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.LoginPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Login">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Margin="20,30,20,20" HorizontalOptions="Center" VerticalOptions="Center">
+                <ff:CachedImage Source="Icon_StudyMSL_v4.png" WidthRequest="100" HeightRequest="100">
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label Text="Study MSL" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+            </StackLayout>
+            <!--<BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="60"/>-->
+            <!--Padding=Left,Top,Right,Bottom-->
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,40,0" VerticalOptions="Center">
+                <ff:CachedImage Grid.Column="0" Source="Icon_Login_128.png" WidthRequest="25" HeightRequest="25"/>
+                <Entry Grid.Column="1" Text="{Binding logindetails.uname, Mode=TwoWay}" x:Name="etyUsername" 
+                        Placeholder="Username" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,40,0" VerticalOptions="Center">
+                <ff:CachedImage Grid.Column="0" Source="Icon_Password_128.png" WidthRequest="25" HeightRequest="25"/>
+                <Entry Grid.Column="1" Text="{Binding logindetails.pword, Mode=TwoWay}" x:Name="etyPassword" 
+                        IsPassword="True" Placeholder="Password" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Grid.Row="4" Grid.ColumnSpan="2" Margin="40,10,40,0" VerticalOptions="Center">
+                <CR:CustomButton Grid.ColumnSpan="2" Text="Sign In" x:Name="btnLogin" Clicked="btnLogin_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,10"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                <StackLayout Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Don't have an account?" TextColor="Gray"/>
+                    <Label Text="Sign Up" TextColor="DarkSlateGray" FontAttributes="Bold"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="lblCreateAccount_OnClicked"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Margin="20,0,20,10" VerticalOptions="End">
+                <Label Text="Continue without login" TextColor="Blue" FontAttributes="Bold" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,40,0,20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="lblNoAccount_OnClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

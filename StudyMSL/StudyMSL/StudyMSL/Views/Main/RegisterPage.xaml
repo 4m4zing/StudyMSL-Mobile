@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.RegisterPage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             BackgroundColor="#e1e4ea"
+             Title="Register">
+
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Margin="20,10,20,20" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Please fill all required(*) fields." FontSize="20"/>
+            </StackLayout>
+
+            <BoxView Grid.Row="1" HeightRequest="80"/>
+            <!--<Frame Grid.Row="2" BackgroundColor="#ffffff" HasShadow="False" Margin="20,0,20,0">-->
+            <!--Padding=Left,Top,Right,Bottom-->
+
+            <StackLayout Grid.Row="2"  Margin="40,0,40,20" Padding="0,0,0,0" Spacing="10" VerticalOptions="Center">
+                <!--<Entry Text="{Binding logindetails.uname, Mode=TwoWay}" x:Name="etyUsername" Placeholder="Username*"/>-->
+                <CR:RoundedEntry Text="{Binding logindetails.uname, Mode=TwoWay}" x:Name="etyUsername" Placeholder="Username*"/>
+                <CR:RoundedEntry Text="{Binding logindetails.pword, Mode=TwoWay}" x:Name="etyPassword" IsPassword="True" Placeholder="Password*"/>
+                <CR:RoundedEntry x:Name="etyConfirmPassword" IsPassword="True" Placeholder="Confirm Password*"/>
+                <CR:RoundedEntry Text="{Binding logindetails.email, Mode=TwoWay}" x:Name="etyEmail" Keyboard="Email" Placeholder="Email*"/>
+            </StackLayout>
+            <!--</Frame>-->
+
+            <StackLayout Grid.Row="3" Margin="40,10,40,0" VerticalOptions="Center">
+                <!--<Button Text="Register" x:Name="btnRegister" Clicked="btnRegister_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,5"/>-->
+                <CR:CustomButton Text="Sign Up" x:Name="btnRegister" Clicked="btnRegister_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,5"
+                                 TextColor="White"
+                                 CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Margin="20,0,20,30" VerticalOptions="End">
+                <!--<Label Text="Already have an account? Sign In" TextColor="Gray" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,0,0,20"/>-->
+                <StackLayout Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Already have an account?" TextColor="Gray"/>
+                    <Label Text="Sign In" TextColor="DarkSlateGray" FontAttributes="Bold"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="lblHaveAccount_OnClicked"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMSL.Views.Main.ContributePage"
+             xmlns:ViewModels="clr-namespace:StudyMSL.ViewModels;assembly=StudyMSL"
+             xmlns:CR="clr-namespace:StudyMSL.Plugins.CustomRenderer"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#e1e4ea"
+             Title="Contribute">
+
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:ContributeViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackLayout Grid.Row="0" Margin="20,0,20,10">
+                    <Label Text="Uploaded image requires an approval from the administrator" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Margin="20,0,20,10">
+                    <ff:CachedImage LoadingPlaceholder="icon_ABC.png" x:Name="imgUpload" 
+                                    HorizontalOptions="Center"
+                                    WidthRequest="250" HeightRequest="250"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Margin="40,0,40,10" Padding="0,10,0,0">
+                    <Label x:Name="lblLocalImagePath" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,5"/>
+                    <CR:CustomButton Text="Choose Image from Device" x:Name="btnChooseImage" Clicked="btnChooseImage_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,5"
+                                     TextColor="White"
+                                     CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                    <CR:CustomButton Text="Capture New Image" x:Name="btnTakeImage" Clicked="btnTakeImage_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,5"
+                                     TextColor="White"
+                                     CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Margin="40,0,40,10" Padding="0,10,0,0">
+                    <Label Text="Image Name:" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <CR:RoundedEntry Text="{Binding imagedetails.image_name, Mode=TwoWay}"  x:Name="etyImgName" Margin="0,0,0,5"/>
+                    <Label Text="Image Name (Malay):" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <CR:RoundedEntry Text="{Binding imagedetails.image_name_malay, Mode=TwoWay}"  x:Name="etyImgNameMalay" TextChanged="etyImgNameMalay_TextChanged" Margin="0,0,0,5"/>
+                    <Label Text="Image Description:" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <CR:RoundedEntry Text="{Binding imagedetails.image_desc, Mode=TwoWay}" x:Name="etyImgDesc" Margin="0,0,0,5"/>
+                    <Label Text="Image Description (Malay):" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <CR:RoundedEntry Text="{Binding imagedetails.image_desc_malay, Mode=TwoWay}" x:Name="etyImgDescMalay" TextChanged="etyImgDescMalay_TextChanged" Margin="0,0,0,5"/>
+                    <!--<Label Text="Image Type:" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Picker x:Name="pImageType">
+                        <Picker.Items>
+                            <x:String>Alphabet</x:String>
+                            <x:String>Number</x:String>
+                            <x:String>Word</x:String>
+                        </Picker.Items>
+                    </Picker>-->
+                </StackLayout>
+                <StackLayout Grid.Row="4" Margin="40,0,40,10" Padding="0,10,0,0">
+                    <CR:CustomButton Text="Upload Image" x:Name="btnUploadImage" Clicked="btnUploadImage_OnClicked" HorizontalOptions="Fill" Margin="0,0,0,5"
+                                     TextColor="White"
+                                     CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
+                    <Label x:Name="lblResponse" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,5"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
