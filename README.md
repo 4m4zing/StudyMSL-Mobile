@@ -1,2 +1,2 @@
 # StudyMSL-Mobile
-A learning portal for Malaysian Sign Language mobile app
+A mobile-based learning portal for Malaysian Sign Language
