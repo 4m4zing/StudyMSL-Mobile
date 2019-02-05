@@ -43,7 +43,7 @@
                             </StackLayout>
                             <StackLayout Grid.Row="1">
                                 <ff:CachedImage Source="{Binding image_dir}" LoadingPlaceholder = "Icon_Alphabet_200.png" 
-                                                MinimumHeightRequest="200" MinimumWidthRequest="200"/>
+                                                WidthRequest="350" HeightRequest="350"/>
                             </StackLayout>
                             <!--<StackLayout Grid.Row="2">
                                 <Label FontSize="30" TextColor="Gray" Text="{Binding image_desc}" HorizontalOptions="Center" VerticalOptions="End"/>
