@@ -109,14 +109,14 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout Grid.Row="7" Margin="20,0,20,5" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+            <StackLayout Grid.Row="7" Margin="5,0,5,5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
                 <!--<Button Text="Check Answer" Pressed="btnCheckAnswer_OnClicked"/>
                 <Button Text="Reset Answer" Pressed="btnResetAnswer_OnClicked"/>-->
-                <CR:CustomButton Text="Check Answer" x:Name="btnCheckAnswer" Clicked="btnCheckAnswer_OnClicked" HorizontalOptions="Fill"
-                                 TextColor="White"
+                <CR:CustomButton Text="Check Answer" x:Name="btnCheckAnswer" Clicked="btnCheckAnswer_OnClicked" HorizontalOptions="Start"
+                                 TextColor="White" Padding="10,0,10,0" Margin="0,0,5,0"
                                  CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
-                <CR:CustomButton Text="Reset Answer" x:Name="btnResetAnswer" Clicked="btnResetAnswer_OnClicked" HorizontalOptions="Fill"
-                                 TextColor="White"
+                <CR:CustomButton Text="Reset Answer" x:Name="btnResetAnswer" Clicked="btnResetAnswer_OnClicked" HorizontalOptions="End"
+                                 TextColor="White" Padding="10,0,10,0" Margin="5,0,0,0"
                                  CustomBorderRadius="60" CustomBorderWidth="4" CustomBorderColor="#5dafe2" CustomBackgroundColor="#5dafe2"/>
             </StackLayout>
         </Grid>

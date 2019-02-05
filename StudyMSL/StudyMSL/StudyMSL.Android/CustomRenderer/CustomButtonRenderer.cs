@@ -49,6 +49,7 @@ namespace StudyMSL.Droid.CustomRenderer
                 }
             }
         }
+
         private void Paint(CustomButton view)
         {
             _gradientBackground = new GradientDrawable();
