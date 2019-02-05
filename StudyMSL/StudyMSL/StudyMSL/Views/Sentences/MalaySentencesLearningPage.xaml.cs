@@ -50,6 +50,13 @@ namespace StudyMSL.Views.Sentences
             }
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            DisplayAlert("Info", "Swipe the page left or right to go to the next gesture" + " \n\nClick OK to continue", "OK");
+        }
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();

@@ -39,6 +39,8 @@ namespace StudyMSL.Views.Learn.Fingerspelling
             {
                 ((LearnViewModel)BindingContext).DoProgress(learnid, learntitle, learntype, learncontent);
             }
+
+            DisplayAlert("Info", "Swipe the page left or right to go to the next gesture" + " \n\nClick OK to continue", "OK");
         }
 
         protected override void OnDisappearing()
